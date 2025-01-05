@@ -10,4 +10,67 @@
 #
 # Model such an application form as a Python class below, and instantiate
 # a few objects from it.
-dddkdkkd
+class Blueprint :
+    def __init__ (self, name, age, gender, address, phone_number, email, height, weight, medical_history, emergency_contact) :
+        self.name = name
+        self.age = age
+        self.gender= gender
+        self.address = address
+        self.phone_number = phone_number
+        self.email = email
+        self.height = height
+        self.weight = weight
+        self.medical_history = medical_history
+        self.emergency_contact = emergency_contact
+
+    def medical_form (self) :
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"gender: {self.gender}")
+        print(f"Address: {self.address}")
+        print(f"Phone Number: {self.phone_number}")
+        print(f"Email: {self.email}")
+        print(f"Height: {self.height}")
+        print(f"Weight: {self.weight}")
+        print(f"Medical History: {self.medical_history}")
+        print(f"Emergency Contact: {self.emergency_contact}")
+patient1 = Blueprint(
+    name = "Joe Spaghetti",
+    age = "25",
+    gender = "M",
+    address = "1234 Main St, San Francisco, CA 94102",
+    phone_number = "415-555-1234",
+    email = "jspaghetti@hotmail.com",
+    height = "6'0",
+    weight = "180 lbs",
+    medical_history = "None",
+    emergency_contact = "Jane Spaghetti"
+)
+patient2 = Blueprint(
+    name= "Tina Tortellini",
+    age = "30",
+    gender= "F",
+    address = "5678 Market St, New York, NY 12550",
+    phone_number = "212-555-5678",
+    email = "ttortellini@aol.com",
+    height = "5'5",
+    weight = "140 lbs",
+    medical_history = "Allergies to peanuts",
+    emergency_contact = "Tony Tortellini"
+)
+patient3 = Blueprint(
+    name = "Ravioli Ricci",
+    age = "35",
+    gender= "M",
+    address = "9101 Broadway, Los Angeles, CA 90210",
+    phone_number = "310-555-9101",
+    email = "pastaboy/2gmail.com",
+    height = "5'10",
+    weight = "160 lbs",
+    medical_history = "High blood pressure",
+    emergency_contact = "Rita Ricci"
+)
+print(patient1.medical_form())
+print(patient2.medical_form())
+print(patient3.medical_form())
+
