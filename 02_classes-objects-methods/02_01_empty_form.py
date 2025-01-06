@@ -70,7 +70,6 @@ patient3 = Blueprint(
     medical_history = "High blood pressure",
     emergency_contact = "Rita Ricci"
 )
-print(patient1.medical_form())
-print(patient2.medical_form())
-print(patient3.medical_form())
-
+__str__ = patient1.medical_form()
+__str__ = patient2.medical_form()
+__str__ = patient3.medical_form()
