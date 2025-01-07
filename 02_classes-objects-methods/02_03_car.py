@@ -16,15 +16,21 @@ class Car():
     def increase_speed(self):
         self.max_speed += 5
 
-    def car_details(self):
-        print(f"Model: {self.model}")
-        print(f"Year: {self.year}")
-        print(f"Max Speed: {self.max_speed}")
+    def __str__(self):
+        return f"Model: {self.model}, Year: {self.year}, Max Speed: {self.max_speed}"
+        # return f"{self.model} ({self.year}) - {self.max_speed} km/h"
+       
+    def add (self, other):
+        new_model = self.model + other.model
+        new_year = self.year + other.year
+        new_max_speed = self.max_speed + other.max_speed
+        return Car(model=new_model, year=new_year, max_speed=new_max_speed)
 
 car1 = Car("Toyota Corolla", 2021, 120)
 car2 = Car("Honda Civic", 2020, 130)
 car3 = Car("Ford Mustang", 2019, 150)
+    
+print(car1)
+print(car2)
+print(car3)
 
-__str__ = car1.car_details()
-__str__ = car2.car_details()
-__str__ = car3.car_details()

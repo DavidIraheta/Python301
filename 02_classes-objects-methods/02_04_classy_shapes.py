@@ -7,6 +7,7 @@
 # of the rectangle, and the circumference of the circle.
 
 class Rectangle():
+    
     def __init__(self, length, width):
         self.length = length
         self.width = width
@@ -16,8 +17,17 @@ class Rectangle():
 
     def perimeter(self):
         return 2 * (self.length + self.width)
+    
+    def __str__(self):
+        return (
+            f"Rectangle Details:\n"
+            f"Length: {self.length}, Width: {self.width}\n"
+            f"Area: {self.area()}, Perimeter: {self.perimeter()}"
+        )
+
 
 class Circle():
+
     def __init__(self, radius):
         self.radius = radius
 
@@ -26,11 +36,16 @@ class Circle():
 
     def circumference(self):
         return 2 * 3.14 * self.radius
+    
+    def __str__(self):
+        return (
+            f"Circle Details:\n"
+            f"Radius: {self.radius}\n"
+            f"Area: {self.area()}, Circumference: {self.circumference()}"
+        )
 
-rectangle1 = Rectangle(5, 10)
-circle1 = Circle(5)
+rectangle = Rectangle(5, 10)
+circle = Circle(5)
 
-__str__ = rectangle1.area()
-__str__ = rectangle1.perimeter()
-__str__ = circle1.area()
-__str__ = circle1.circumference()
+print(rectangle)
+print(circle)
