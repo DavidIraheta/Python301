@@ -11,7 +11,7 @@
 # Model such an application form as a Python class below, and instantiate
 # a few objects from it.
 class Blueprint :
-    def __init__ (self, name, age, gender, address, phone_number, email, height, weight, medical_history, emergency_contact) :
+    def __init__ (self, name, age, gender, address, phone_number, email, height, weight, medical_history, emergency_contact):
         self.name = name
         self.age = age
         self.gender= gender
@@ -24,16 +24,18 @@ class Blueprint :
         self.emergency_contact = emergency_contact
 
     def medical_form (self) :
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"gender: {self.gender}")
-        print(f"Address: {self.address}")
-        print(f"Phone Number: {self.phone_number}")
-        print(f"Email: {self.email}")
-        print(f"Height: {self.height}")
-        print(f"Weight: {self.weight}")
-        print(f"Medical History: {self.medical_history}")
-        print(f"Emergency Contact: {self.emergency_contact}")
+        return(
+        f"Name: {self.name}\n"
+        f"Age: {self.age}\n"
+        f"gender: {self.gender}\n"
+        f"Address: {self.address}\n"
+        f"Phone Number: {self.phone_number}\n"
+        f"Email: {self.email}\n"
+        f"Height: {self.height}\n"
+        f"Weight: {self.weight}\n"
+        f"Medical History: {self.medical_history}\n"
+        f"Emergency Contact: {self.emergency_contact}\n"
+        )
 patient1 = Blueprint(
     name = "Joe Spaghetti",
     age = "25",
@@ -70,6 +72,7 @@ patient3 = Blueprint(
     medical_history = "High blood pressure",
     emergency_contact = "Rita Ricci"
 )
-__str__ = patient1.medical_form()
-__str__ = patient2.medical_form()
-__str__ = patient3.medical_form()
+print(patient1.medical_form())
+print(patient2.medical_form())
+print(patient3.medical_form())
+
