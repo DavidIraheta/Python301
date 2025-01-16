@@ -15,7 +15,7 @@ def print_welcome():
     leaving the kingdom vulnerable to his chaotic rule.
     The toads cried for a savior, but no one dared to step up.
     No one, except Waluigi.
-    Your friends need to to restore peace to the mushroom kingdom.
+    Your friends need you to restore peace to the mushroom kingdom.
     You must defeat Bowser and his minions to save them.""")
 
 def play_game():
@@ -34,5 +34,36 @@ def play_game():
 
     while True:
         current_opponent = random.choice(Opponents)
-        print(f"Watch out Waliuigi! a" {current_opponent.name} \
+        print(f"Watch out Waliuigi! a {current_opponent.name} \
               at Level {current_opponent.level} has appeared.\n")
+    
+        cmd = input("Do you want to [a]ttack , [r]unaway , or [l]ook around? ").strip().lower()
+        while cmd not in ["a", "r", "l", "q"]:
+          print("Please enter one of the letters[a],[r], or [l] to play").strip().lower()
+          print("To exit the game type [q] to quit")
+          cmd = input("Do you want to [a]ttack , [r]unaway , or [l]ook around? ").strip().lower()
+        
+        if cmd == "a":
+            if hero.attack(current_opponent):
+                Opponents.remove(current_opponent)
+            else:
+                hero.take_damage(current_opponent.attack(hero))
+                time.sleep(2)
+                print(f"{hero.name} decided to take a nap for a moment, he regains some health.")
+        
+        elif cmd == "r":
+            print(f"{hero.name} ran away from the {current_opponent.name}!")
+
+        elif cmd == "l":
+            print(f"{hero.name} whacks his tennis racket around at nothing around and sees:")
+            for opponent in Opponents:
+                print(f"* A {opponent.name} at Level {opponent.level}")
+        
+        elif cmd == "q":
+            print("\n You left all your friends hangning in danger and ran away")
+            break
+
+
+if __name__ == "__main__":
+    main()
+
