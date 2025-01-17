@@ -12,7 +12,7 @@ class Ingredient:
 
     def expire(self):
         """Expires the ingredient item."""
-        print(f"whoops, these {self.name} went bad...")
+        print(f"whoops, these {self.name} went bad...poops")
         self.name = "expired " + self.name
 
     def __str__(self):
@@ -22,6 +22,24 @@ class Ingredient:
 class Spice(Ingredient):
     """Models a spice to flavor your food."""
 
+    
+    def expire(self):
+        """Expires the ingredient item."""
+        print(f"whoops, this {self.name} expired, it's probably still good...")
+        self.name = "old " + self.name
+
+
     def grind(self):
         print(f"You have now {self.amount} of ground {self.name}.")
 
+c = Ingredient('carrots', 3)
+t = Ingredient('tomatoes', 6)
+m = Ingredient('milk', 1)
+s = Spice('salt', 10)
+p = Spice('pepper', 20)
+
+print(c)
+print(p)
+c.expire()
+p.expire()
+p.grind()

@@ -8,7 +8,7 @@ def main():
     play_game()
 
 def print_welcome():
-    print("""-----------------------------------------------------
+    print("""---------------------------------------------------
           ------------Welcome to Waluigi's Castle!-------------
           ------------------------------------------------------
     Using his dark magic, Bowser trapped Mario, Luigi, and Princess Peach in a crystal labyrinth,
@@ -30,7 +30,7 @@ def play_game():
     Opponent("Chain Chomp", 18),
     Opponent("Bowser", 45)
     ]
-    hero = Hero("Waluigi", 1, 100)
+    hero = Hero("Waluigi", 10, 100)
 
     while True:
         current_opponent = random.choice(Opponents)
@@ -50,6 +50,7 @@ def play_game():
                 hero.take_damage(current_opponent.attack(hero))
                 time.sleep(2)
                 print(f"{hero.name} decided to take a nap for a moment, he regains some health.")
+                
         
         elif cmd == "r":
             print(f"{hero.name} ran away from the {current_opponent.name}!")
@@ -60,7 +61,7 @@ def play_game():
                 print(f"* A {opponent.name} at Level {opponent.level}")
         
         elif cmd == "q":
-            print("\n You left all your friends hangning in danger and ran away")
+            print("\n You left all your friends hanging in danger and ran away")
             break
 
 
