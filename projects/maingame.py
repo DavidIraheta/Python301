@@ -8,9 +8,10 @@ def main():
     play_game()
 
 def print_welcome():
-    print("""---------------------------------------------------
+    print("""
+          -----------------------------------------------------
           ------------Welcome to Waluigi's Castle!-------------
-          ------------------------------------------------------
+          -----------------------------------------------------
     Using his dark magic, Bowser trapped Mario, Luigi, and Princess Peach in a crystal labyrinth,
     leaving the kingdom vulnerable to his chaotic rule.
     The toads cried for a savior, but no one dared to step up.
@@ -34,8 +35,8 @@ def play_game():
 
     while True:
         current_opponent = random.choice(Opponents)
-        print(f"Watch out Waliuigi! a {current_opponent.name} \
-              at Level {current_opponent.level} has appeared.\n")
+        print(f"Watch out Waliuigi! a {current_opponent.name} "\
+              f"at Level {current_opponent.level} has appeared.\n")
     
         cmd = input("Do you want to [a]ttack , [r]unaway , or [l]ook around? ").strip().lower()
         while cmd not in ["a", "r", "l", "q"]:
