@@ -84,7 +84,7 @@ if __name__ == "__main__":
     tomato_soup = Soup("Tomato Soup", "Cook the tomatoes and blend.", ("tomatoes", 3), ("onions", 1), ("garlic", 2))
     print(tomato_soup.get_info())
 
-    # Fetch a recipe (replace 'YOUR_API_KEY' with a valid API key)
+
     print(tomato_soup.cook())
 
     # Create a spicy soup
