@@ -1,6 +1,6 @@
 import random 
 import time 
-from Characters import Hero, Opponent
+from Characters import Hero, Opponent, BossOpponent, SmallOpponent
 
 
 def main():
@@ -21,21 +21,21 @@ def print_welcome():
 
 def play_game():
     Opponents = [
-    Opponent("Goomba", 1), 
-    Opponent("Koopa", 2),
-    Opponent("Boo", 4), 
-    Opponent("Wiggler", 6),
-    Opponent("Thwomp", 8),
-    Opponent("Dry Bones", 10),
-    Opponent("Shy Guy", 12),
-    Opponent("Chain Chomp", 18),
-    Opponent("Bowser", 45)
+    SmallOpponent("Goomba", 1), 
+    SmallOpponent("Koopa", 2),
+    SmallOpponent("Boo", 4), 
+    SmallOpponent("Wiggler", 6),
+    SmallOpponent("Thwomp", 8),
+    SmallOpponent("Dry Bones", 10),
+    SmallOpponent("Shy Guy", 12),
+    SmallOpponent("Chain Chomp", 18),
+    BossOpponent("Bowser", 50)
     ]
-    hero = Hero("Waluigi", 10, 100)
+    hero = Hero("Waluigi", 50)
 
     while True:
         current_opponent = random.choice(Opponents)
-        print(f"Watch out Waliuigi! a {current_opponent.name} "\
+        print(f"WATCH OUT Waliuigi! a {current_opponent.name} "\
               f"at Level {current_opponent.level} has appeared.\n")
     
         cmd = input("Do you want to [a]ttack , [r]unaway , or [l]ook around? ").strip().lower()

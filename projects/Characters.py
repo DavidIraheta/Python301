@@ -48,12 +48,23 @@ class Opponent:
     def __init__(self, name, level = 1):
         self.name = name
         self.level = level
-        self.health = level * 20
+        self.health = level 
     def attack (self, hero):
-        return random.randint(1, 6) + self.level 
+        return random.randint(1, 12) + self.level 
     
     def take_damage(self, damage):
         self.health -= damage
         
     def __repr__(self):
         return f"Oppononent: {self.name} at Level {self.level}"
+
+class SmallOpponent(Opponent):
+    def __init__(self, name, level = 1):
+        super().__init__(name, level)
+        self.health = level * 10
+
+class BossOpponent(Opponent):
+    def __init__(self, name, level = 1):
+        super().__init__(name, level)
+        self.health = level * 50
+
