@@ -16,7 +16,6 @@
 #   of a battle based on the primary types of two Pokemon
 
 
-
 class Pokemon:
     def __init__(self, name, primary_type, hp, max_hp):
         self.name = name
