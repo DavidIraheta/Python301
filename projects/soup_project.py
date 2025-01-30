@@ -92,5 +92,5 @@ if __name__ == "__main__":
     print(spicy_soup.get_info())
 
     # Create a vegan soup
-    vegan_soup = VeganSoup("Vegetable Soup", "Boil and simmer the vegetables.", ("Carrots", 2), ("Turnips", 2), ("Potatoes", 3), ("Onion", 1), ("Celery", 1))
+    vegan_soup = VeganSoup("Vegetable Soup", "Boil and simmer the vegetables.", ("Coconut", 2), ("Ginger", 3), ("Celery", 1), ("Kale", 1), ("Zucchini", 1))
     print(vegan_soup.get_info())
