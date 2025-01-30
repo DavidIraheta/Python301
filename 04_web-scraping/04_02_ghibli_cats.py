@@ -10,37 +10,39 @@ import requests
 
 BASE_URL = "https://ghibliapi-iansedano.vercel.app"
 
-response = requests.get(BASE_URL + "/api/species")
-species = response.json()
-
 cat_species = []
 
-
+response = requests.get(BASE_URL + f"/api/species")
+species = response.json()
 for sp in species:
-    if "cat" in sp["classification"].lower():
-        print(sp["name"])
-        print(sp["classification"])
-        print(sp["eye_colors"])
-        print(sp["hair_colors"])
-        print(sp["url"])
-        print("\n")
+    if "cat" in {sp["name"].lower()}:
+        cat_species.append(sp)
 
-# response = requests.get(BASE_URL + "/api/films")
+for sp in cat_species:
+    response = requests.get(BASE_URL + f"/api/species/{sp['id']}")
+    species = response.json()
+    print(f"{species['name']}")
+    print(f"{species['classification']}")
+    print(f"{species['eye_colors']}")
+    print(f"{species['hair_colors']}")
+    print(f"{species['url']}")
+    print("\n")
 
-# films = response.json()
+# import requests
 
-# for film in films:
-#     print(film["title"])
-#     print(film["description"])
-#     print(film["director"])
-#     print(film["release_date"])
-#     print(film["rt_score"])
-#     print(film["running_time"])
-#     print(film["people"])
-#     print(film["species"])
-#     print(film["locations"])
-#     print(film["vehicles"])
-#     print(film["url"])
-#     print("\n")
+# BASE_URL = "https://ghibliapi-iansedano.vercel.app"
+
+# cat_species = []
+
+# for sp in cat_species:
+#     response = requests.get(BASE_URL + f"/api/species")
+#     species = response.json()
+#     if "cat" in sp["species"].lower():
+#         print(f"{sp["name"]}")
+#         print(f"{sp["classification"]}")
+#         print(f"{sp["eye_colors"]}")
+#         print(f"{sp["hair_colors"]}")
+#         print(f"{sp["url"]}")
+#         print("\n")
 
 

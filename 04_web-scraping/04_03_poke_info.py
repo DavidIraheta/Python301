@@ -37,6 +37,6 @@ for poke in pokemon:
     data = response.json()
     print(f"{data['name']} ({data['id']})")
     print("Types:")
-    for type_ in data["types"]:
-        print(f"  - {type_['type']['name']}")
+    for type in data["types"]:
+        print(f"  - {type['type']['name']}")
     print("\n")
