@@ -11,16 +11,14 @@ BASE_URL = "https://ghibliapi-iansedano.vercel.app"
 
 cat_species = []
 
-# Fetch species data from the API
 species_response = requests.get(BASE_URL + "/api/species")
 species = species_response.json()
 
-# Find all species with "cat" in their name
 for sp in species:
     if "name" in sp and "cat" in sp["name"].lower():
         cat_species.append(sp)
 
-# Print results
+
 print("\nStudio Ghibli Cats:\n")
 if not cat_species:
     print("No cat species found.")
