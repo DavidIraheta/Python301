@@ -1,4 +1,5 @@
 #build a card game using classes and inheritance
+
 import arcade
 import random
 
@@ -15,7 +16,7 @@ class Card:
         self.value = value
 
     def draw(self, x, y):
-        arcade.draw_rectangle_filled(x, y, CARD_WIDTH, CARD_HEIGHT, arcade.color.WHITE)
+        arcade.draw_rect_filled(x, y, CARD_WIDTH, CARD_HEIGHT, arcade.color.WHITE)
         arcade.draw_text(f"{self.color} {self.value}", x - 20, y - 10, arcade.color.BLACK, 12)
 
 # Deck class

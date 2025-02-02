@@ -16,7 +16,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 
 links = soup.find_all("a", href=True)
 
-pprint(links)
+print(links)
 
 filtered_links = [link["href"] for link in links if link["href"].startswith("/wiki/") and ":" not in link["href"]]
 
@@ -29,7 +29,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 text_content = soup.get_text()
 
 
-pprint(text_content)
+print(text_content.prettify())
 
 
 with open("web_scraping.txt", "w") as file:

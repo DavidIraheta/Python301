@@ -8,4 +8,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+URL = "https://www.baseball-reference.com/leagues/majors/2024-batting-leaders.shtml"
+response = requests.get(URL)
+
+
 

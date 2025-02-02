@@ -14,7 +14,7 @@ cat_species = []
 species_response = requests.get(BASE_URL + "/api/species")
 species = species_response.json()
 
-for sp in species:
+for sp in species["data"]["species"]:
     if "name" in sp and "cat" in sp["name"].lower():
         cat_species.append(sp)
 
