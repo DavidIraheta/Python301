@@ -50,6 +50,8 @@ for book in books:
         print(f"An error occurred: {e}")
     except:
         print("An unknown error occurred.")
+    finally:
+        print("End of loop.")
     print()
 
 
