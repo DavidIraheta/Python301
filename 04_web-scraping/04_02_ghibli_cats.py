@@ -7,11 +7,11 @@
 
 
 import requests
-BASE_URL = "https://ghibliapi-iansedano.vercel.app"
+URL = "https://ghibliapi-iansedano.vercel.app"
 
 cat_species = []
 
-species_response = requests.get(BASE_URL + "/api/species")
+species_response = requests.get(URL + "/api/species")
 species = species_response.json()
 
 for sp in species["data"]["species"]:

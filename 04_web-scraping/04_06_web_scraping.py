@@ -8,8 +8,9 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.baseball-reference.com/leagues/majors/2024-batting-leaders.shtml"
+URL = "https://www.imdb.com/title/tt5040012/?ref_=nv_sr_srsg_1_tt_6_nm_1_in_0_q_nosfera"
 response = requests.get(URL)
+soup = BeautifulSoup(response.text, "html.parser")
+print(soup.prettify())
 
-
-
+director = soup.find("div", class_="<a class=" href="/name/nm3211470/?ref_=tt_cst_dr_1">Robert Eggers</a>")

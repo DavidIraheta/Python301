@@ -5,3 +5,15 @@
 # only if neither of them applies.
 
 file_name = 'integers.txt'
+
+try:
+    dividend = int(input("Please enter the number to be divided: "))
+    divisor = int(input("Please enter the divisor: "))
+    result = dividend / divisor
+    print(f"The result of {dividend} divided by {divisor} is {result}")
+except ZeroDivisionError:
+    print("My most sincere apologies, but you can't divide by zero.")
+except ValueError:
+    print("I am once again asking you to use only digits in your input.")
+except:
+    print("Please remain calm...")
