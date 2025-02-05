@@ -14,13 +14,12 @@
 #     a) Which exception can you expect to encounter? Why?
 #     b) How do you catch it to avoid the program from terminating with a traceback?
 
-# Define the file paths
 
 from pathlib import Path
 war_and_peace_path = "/Users/davidiraheta/Documents/CodingNomads/python-301-main/05_exceptions/books/war_and_peace.txt"
 crime_and_punishment_path = "/Users/davidiraheta/Documents/CodingNomads/python-301-main/05_exceptions/books/crime_and_punishment.txt"
+pride_and_prejudice_path = "/Users/davidiraheta/Documents/CodingNomads/python-301-main/05_exceptions/books/pride_and_prejudice.txt"
 
-# Read the contents of "war_and_peace.txt"
 try:
     with open(war_and_peace_path, "r") as file:
         war_and_peace_content = file.read()
@@ -33,6 +32,25 @@ try:
         file.write("")
 except FileNotFoundError:
     print(f"Error: {crime_and_punishment_path} not found.")
+
+# Loop over all three files and print out only the first character each
+books = [war_and_peace_path, crime_and_punishment_path, pride_and_prejudice_path]
+
+for book in books:
+    try:
+        with open(book, "r") as file:
+            print(file.read(1))
+    except UnicodeDecodeError:
+        print(f"Error: {book} is not a text file.")
+    except FileNotFoundError:
+        print(f"Error: {book} not found.")
+    except PermissionError:
+        print(f"Error: Permission denied for {book}.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    except:
+        print("An unknown error occurred.")
+    print()
 
 
 
