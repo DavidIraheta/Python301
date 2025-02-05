@@ -15,5 +15,9 @@ except ZeroDivisionError:
     print("My most sincere apologies, but you can't divide by zero.")
 except ValueError:
     print("I am once again asking you to use only digits in your input.")
-except:
-    print("Please remain calm...")
+except IOError:
+    print("Please remain calm...and enter an integer.")
+else:
+    print("Thank you for your input.")
+
+
