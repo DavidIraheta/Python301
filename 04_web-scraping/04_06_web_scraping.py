@@ -7,10 +7,24 @@
 
 import requests
 from bs4 import BeautifulSoup
+import json 
 
-URL = "https://www.imdb.com/title/tt5040012/?ref_=nv_sr_srsg_1_tt_6_nm_1_in_0_q_nosfera"
+#scrape books to scrape from https://books.toscrape.com/ for science fiction books
+
+URL = "https://books.toscrape.com/catalogue/category/books/science-fiction_16/index.html"
 response = requests.get(URL)
 soup = BeautifulSoup(response.text, "html.parser")
-print(soup.prettify())
+books = soup.find_all("article", class_="product_pod")
+book_list = []
+for book in books:
+    title = book.h3.a["title"]
+    price = book.find("p", class_="price_color").text
+    rating = book.p["class"][1]
+    book_list.append({"title": title, "price": price, "rating": rating})
+    print(title, price, rating)
 
-director = soup.find("div", class_="<a class=" href="/name/nm3211470/?ref_=tt_cst_dr_1">Robert Eggers</a>")
+with open("books.json", "w") as file:
+    json.dump(book_list, file)
+
+print()
+

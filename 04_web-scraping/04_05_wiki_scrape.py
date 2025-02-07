@@ -9,7 +9,7 @@ URL = "https://en.wikipedia.org/wiki/Web_scraping"
 
 import requests
 from bs4 import BeautifulSoup
-import pprint
+
 
 response = requests.get(URL)
 soup = BeautifulSoup(response.text, "html.parser")
@@ -29,7 +29,7 @@ soup = BeautifulSoup(response.text, "html.parser")
 text_content = soup.get_text()
 
 
-print(text_content.prettify())
+print(text_content)
 
 
 with open("web_scraping.txt", "w") as file:

@@ -10,3 +10,20 @@
 # Keep in mind that you will run into an error when you'll attempt to import
 # this file, because Python modules can't begin with a number.
 # You can rename the file to make it work :)
+
+import unittest
+from test_discount import apply_discount
+
+class TestApplyDiscount(unittest.TestCase):
+     
+     def test_valid_discount(self):
+        """Test applying a valid discount."""
+        self.assertEqual(apply_discount(100, 20), 80.0)
+        
+
+     def test_zero_discount(self):
+        """Test when no discount is applied."""
+        self.assertAlmostEqual(apply_discount(50, 0), 50.0)
+
+if __name__ == "__main__":
+    unittest.main()
