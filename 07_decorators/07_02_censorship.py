@@ -4,3 +4,17 @@
 #    "I bumped my toe! Shoot!"
 # Would, after decorating it with `@censor()`, return:
 #    "I bumped my toe! S****!"
+
+def censor(func):
+    """A decorator that censors potentially offensive words."""
+    def wrapper(text):
+        return text.replace("Shoot", "S****")
+    return wrapper
+
+@censor
+
+def say_something(text):
+    return text
+
+print(say_something("I bumped my toe! Shoot!"))  # OUTPUT: I bumped my toe! S****!
+
