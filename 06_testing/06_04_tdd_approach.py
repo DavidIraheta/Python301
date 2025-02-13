@@ -9,3 +9,9 @@
 #
 # You do not need to implement the actual functions after writing the tests 
 # but of course you can do that, too.
+
+import unittest
+
+class TestAddition(unittest.TestCase):
+
+                    

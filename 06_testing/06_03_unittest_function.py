@@ -25,5 +25,15 @@ class TestApplyDiscount(unittest.TestCase):
         """Test when no discount is applied."""
         self.assertAlmostEqual(apply_discount(50, 0), 50.0)
 
+     def test_full_discount(self):
+        """Test when full discount is applied."""
+        self.assertAlmostEqual(apply_discount(100, 100), 0.0)
+
+     def test_invalid_discount(self):
+        """Test applying an invalid discount."""
+        with self.assertRaises(ValueError):
+            apply_discount(100, 150)
+    
+
 if __name__ == "__main__":
     unittest.main()
