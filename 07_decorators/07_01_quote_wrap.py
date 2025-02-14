@@ -12,5 +12,5 @@ def quote(func):
 def say_something(text):
     return text
 
-print(say_something("Hello world!"))  # OUTPUT: "Hello world!"
-print(say_something("Python is awesome!"))  # OUTPUT: "Python is awesome!"
+print(say_something("Hello world!"))  
+print(say_something("Python is awesome!")) 

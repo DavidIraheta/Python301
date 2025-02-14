@@ -6,7 +6,7 @@
 #    "I bumped my toe! S****!"
 
 def censor(func):
-    """A decorator that censors potentially offensive words."""
+    """A decorator that censors offensive words."""
     def wrapper(text):
         return text.replace("Shoot", "S****")
     return wrapper
