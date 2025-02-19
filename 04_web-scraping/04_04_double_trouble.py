@@ -7,14 +7,7 @@
 
 import requests
 
-class Music:
-    def __init__(self, title, artist, album, release_date):
-        
-        self.title = title
-        self.artist = artist
-        self.album = album
-        self.release_date = release_date
-
-    def get_info(self):
-        return f"{self.title} by {self.artist} from the album {self.album} was released on {self.release_date}."
-
+URL = "https://api.chucknorris.io/jokes/random"
+response = requests.get(URL)
+chuck_data = response.json()
+chuck_joke = chuck_data["value"]

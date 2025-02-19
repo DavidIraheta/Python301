@@ -21,4 +21,4 @@ def decorate(symbol):
 @decorate("*")
 def say_something(text):
     return text
-print(say_something("Hello"))  # OUTPUT: ******************************\n* Hello *\n******************************
+print(say_something("Hello")) 

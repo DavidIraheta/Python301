@@ -71,13 +71,13 @@ fruit1 = Fruit("Mango", "Yellow", "Sweet", "$3")
 fruit2 = Fruit("Apple", "Red", "Tart", "$2")
 
 # Changing attributes
-cat1.age += 1  # Buddy had a birthday!
-laptop1.ram = 32  # Upgraded RAM
-fruit1.sweetness = 10  # Super ripe mango
+cat1.age += 1  
+laptop1.ram = 32  
+fruit1.sweetness = 10 
 
 new_cat = cat1 + cat2
 
-# Printing objects
+
 print(cat1)
 print(cat2)
 print(new_cat)  

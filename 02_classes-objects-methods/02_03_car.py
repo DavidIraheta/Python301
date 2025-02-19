@@ -18,7 +18,7 @@ class Car():
 
     def __str__(self):
         return f"Model: {self.model}, Year: {self.year}, Max Speed: {self.max_speed}"
-        # return f"{self.model} ({self.year}) - {self.max_speed} km/h"
+        
        
     def add (self, other):
         new_model = self.model + other.model

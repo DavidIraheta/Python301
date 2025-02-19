@@ -35,6 +35,8 @@ pokemon = ["Golem", "Toxicroak", "Hydreigon", "Houndoom", "Crawdaunt", "Celebi"]
 for poke in pokemon:
     response = requests.get(BASE_URL + f"pokemon/{poke.lower()}")
     data = response.json()
+
+    
     print(f"{data['name']} ({data['id']})")
     print("Types:")
     for type in data["types"]:
