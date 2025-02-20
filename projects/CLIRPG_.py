@@ -5,6 +5,7 @@ import random
 import json
 import os
 import requests
+import unittest
 
 name_length = 0
 while not (name_length >= 2 and name_length <= 8):
@@ -27,7 +28,7 @@ items = {"sword": 5, "golden axe": 10, "shield": 3, "potion": 15, "rusty dagger"
 # Player stats
 player = {"name": "", "attack": random.randint(4, 8), "defense": 2, "health": 10, "inventory": []}
 
-# Function to save the game
+
 def save_game(player):
     if os.path.exists("save_file.json"):
         with open("save_file.json", "w") as save_file:
@@ -36,7 +37,6 @@ def save_game(player):
     else:
         print("Failed to save game. File does not exist.")
 
-# Function to load the game
 def load_game():
     if os.path.exists("save_file.json"):
         with open("save_file.json", "r") as save_file:
@@ -45,7 +45,6 @@ def load_game():
         print("No save file found. Starting a new game.")
         return None
     
-# Function to handle battles
 def battle(player, enemy_name, enemy_attack, enemy_health):
     print(f"A {enemy_name} appears! Get ready to fight.")
     while player["health"] > 0 and enemy_health > 0:
@@ -92,6 +91,35 @@ def battle(player, enemy_name, enemy_attack, enemy_health):
         if player["health"] <= 0:
             print("You have been defeated. Game over.")
             break
+
+class TestGame(unittest.TestCase):
+
+    def test_get_random_name(self):
+        """Test if API returns a valid name"""
+        name = get_random_name(5)
+        self.assertIsInstance(name, str)
+        self.assertTrue(2 <= len(name) <= 8)  # Name should respect min/max length
+
+    def test_save_and_load_game(self):
+        """Test saving and loading the game"""
+        test_player = {"name": "Hero", "health": 10, "inventory": ["sword"]}
+        save_game(test_player)
+        loaded_player = load_game()
+        self.assertEqual(test_player, loaded_player)
+        os.remove("test_save.json")  # Clean up after test
+
+    def test_battle_system(self):
+        """Test battle calculations"""
+        test_player = {"attack": 6}
+        enemy_health = 10
+        remaining_health = battle(test_player, "Goblin", enemy_attack=2, enemy_health=enemy_health)
+        self.assertTrue(0 <= remaining_health < 10)  # Enemy health should reduce but not be negative
+
+    def test_inventory_system(self):
+        """Test adding items to inventory"""
+        player = {"inventory": []}
+        player["inventory"].append("shield")
+        self.assertIn("shield", player["inventory"])
 
 # Main game loop
 def main():
@@ -148,4 +176,4 @@ def main():
     print("Thank you for playing!")
 
 if __name__ == "__main__":
-    main()
+    unittest.main()

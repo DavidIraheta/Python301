@@ -1,62 +1,56 @@
 # Build a custom `Stack` similar to the `Queue` you built
 
 class Node:
-    def __init__(self, value=None):
+    def __init__(self, value):
         self.value = value
         self.next = None
 
-
-class Queue:
+class Stack:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.top = None
         self.length = 0
-    
-    def is_empty(self):
-        return self.head is None
+        self.min = None
 
-    def peek(self):
-        if self.is_empty():
-            return None
-        else:
-            return self.head.value
-    
-    def enqueue(self, value):
+    def push(self, value):
         new_node = Node(value)
-        if self.is_empty():
-            self.head = new_node
-            self.tail = new_node
+        if self.top is None:
+            self.top = new_node
+            self.min = value
         else:
-            self.tail.next = new_node
-            self.tail = new_node
+            new_node.next = self.top
+            self.top = new_node
+            if value < self.min:
+                self.min = value
         self.length += 1
+        return self
     
-    def dequeue(self):
-        if self.is_empty():
+    def pop(self):
+        if self.top is None:
             return None
-        else:
-            dequeued_node = self.head
-            self.head = self.head.next
-            self.length -= 1
-            if self.is_empty():
-                self.tail = None
-            return dequeued_node.value
+        popped_node = self.top
+        self.top = self.top.next
+        self.length -= 1
+        return popped_node.value
+    
+    def empty(self):
+        return self.length == 0
+    
+    def peek(self):
+        if self.top is None:
+            return None
+        return self.top.value
+    
 
-# Create a new `Queue` object
-morning_tasks = Queue()
+end_of_night__checklist = Stack()
 
-# Add items to the queue during the previous night
-morning_tasks.enqueue("get dressed")
-morning_tasks.enqueue("eat breakfast")
-morning_tasks.enqueue("go to work")
+end_of_night__checklist.push("Brush teeth")
+end_of_night__checklist.push("Wash face")
+end_of_night__checklist.push("Read")
+end_of_night__checklist.push("Drink water")
 
-# Check what'll be your first task during a midnight wake-up without doing it
-morning_tasks.peek()  # get dressed
+print(end_of_night__checklist.peek())  
+print(end_of_night__checklist.pop())  
 
-# Fetch an element from the queue in the morning right after waking up
-task = morning_tasks.dequeue()  # get dressed
-
-print(f"Todo: {task}")  # Todo: get dressed
 
 
 
