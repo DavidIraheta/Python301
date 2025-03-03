@@ -15,5 +15,6 @@ class TestMathModule(unittest.TestCase):
         self.assertEqual(math.ceil(5.4), 6)
         self.assertEqual(math.ceil(5.5), 6)
 
+    
 if __name__ == "__main__":
     unittest.main()

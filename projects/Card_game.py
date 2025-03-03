@@ -1,4 +1,4 @@
-#build a card game using classes and inheritance
+# build a card game using classes and inheritance
 
 import arcade
 import random
@@ -6,6 +6,7 @@ import random
 # Constants
 WIDTH, HEIGHT = 800, 600
 CARD_WIDTH, CARD_HEIGHT = 80, 120
+SCREEN_TITLE = "Welcome to UNOS"
 COLORS = ["red", "green", "blue", "yellow"]
 VALUES = list(range(2, 9)) + ["skip", "reverse", "+2"]
 
@@ -17,7 +18,7 @@ class Card:
 
     def draw(self, x, y):
         # Draw card background
-        arcade.draw_rectangle_filled(x, y, CARD_WIDTH, CARD_HEIGHT, arcade.color.WHITE)
+        arcade.draw_rectangle_filled(x, y, CARD_WIDTH, CARD_HEIGHT, arcade.color.YELLOW)
 
         # Draw card border
         arcade.draw_rectangle_outline(x, y, CARD_WIDTH, CARD_HEIGHT, arcade.color.BLACK, 2)
@@ -57,15 +58,17 @@ class UnoGame(arcade.Window):
 
         # Set the background color
         super().__init__(WIDTH, HEIGHT, "UNO Game", resizable=True)
-        arcade.set_background_color(arcade.color.AMAZON)
+        arcade.set_background_color(arcade.color.WHITE)
 
         # Initialize deck and player
         self.deck = Deck()
         self.player = Player("Player 1")
         self.player.draw(self.deck, 7)  # Draw 7 cards to start
 
+    arcade.start_render
+
     def on_draw(self):
-        arcade.start_render()
+        self.clear()
 
         # Display player hand (spacing to prevent overlap)
         for i, card in enumerate(self.player.hand):
@@ -73,12 +76,18 @@ class UnoGame(arcade.Window):
             card.draw(x_position, HEIGHT - 150)
 
         # Draw instruction text
-        arcade.draw_text("Press 'Q' to quit", 10, 10, arcade.color.WHITE, 14)
+        arcade.draw_text("Press 'Q' to quit", 10, 10, arcade.color.GREEN, 14)
+
+        arcade.finish_render
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.Q:
             arcade.close_window()
 
+    
+
 if __name__ == "__main__":
     game = UnoGame()
     arcade.run()
+
+

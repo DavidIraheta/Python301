@@ -41,16 +41,16 @@ class Stack:
         return self.top.value
     
 
-end_of_night__checklist = Stack()
+end_of_night_checklist = Stack()
 
-end_of_night__checklist.push("Brush teeth")
-end_of_night__checklist.push("Wash face")
-end_of_night__checklist.push("Read")
-end_of_night__checklist.push("Drink water")
+end_of_night_checklist.push("Brush teeth")
+end_of_night_checklist.push("Wash face")
+end_of_night_checklist.push("Read")
+end_of_night_checklist.push("Drink water")
 
-print(end_of_night__checklist.peek())  
-print(end_of_night__checklist.pop())  
-
+print(end_of_night_checklist.peek())  
+print(end_of_night_checklist.pop())  
+print(f"Todos left: {end_of_night_checklist}")
 
 
 

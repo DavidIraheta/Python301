@@ -26,4 +26,35 @@ class ActionMovie(Movie):
     def __init__(self, year, title):
         super().__init__(year, title)
         self.pg = 13
+
+class Animal:
+    def __init__(self, type, size):
+        self.type = type
+        self.size = size
+    
+    def speak(self):
+        
+        noise = "Wooof"
+
+        print(noise)
+
+        
+
+class Dog(Animal):
+    def __init__(self, type, size, sound):
+        super().__init__(type, size)
+        self.sound = sound
+        
+    
+    def speak(self):
+        print(self.sound)
+
+dog = Dog("Golden Retriever", "large", "arf")
+
+dog.speak()
+
+
+
+
+
         

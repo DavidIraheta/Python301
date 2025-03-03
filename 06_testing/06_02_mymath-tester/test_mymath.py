@@ -13,8 +13,10 @@ class TestSubtractDivide(unittest.TestCase):
         self.assertEqual(subtract_divide(10, 5, 4), 10)
     
     def test_custom_zero_division_error(self):
-        with self.assertRaises(CustomZeroDivisionError):
+        with self.assertRaises(CustomZeroDivsionError):
             subtract_divide(10, 5, 5)
+
+
 
 if __name__ == "__main__":
     unittest.main()
